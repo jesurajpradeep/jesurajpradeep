@@ -1,0 +1,78 @@
+﻿<Window x:Class="CS7Starter.LanguageUpdateUI"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CS7Starter"
+        mc:Ignorable="d"
+       Title="LanguageUpdateUI" Loaded="Window_Loaded" MouseLeftButtonDown="OnMouseLeftButtonDown" WindowStyle="None" Topmost="True" AllowsTransparency="True" WindowStartupLocation="Manual" Height="80" Width="150" ResizeMode="NoResize">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources\Styles.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Window.Background>
+        <SolidColorBrush Opacity="0.5" Color="LightCyan"/>
+    </Window.Background>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Button Content="X" FontSize="8" FontStyle="Oblique" FontWeight="ExtraBold" Height="14" MinHeight="14" HorizontalAlignment="Right" Command="{Binding LanguageUIExitCommand}"  VerticalAlignment="Bottom" Margin="0,0,0,1"></Button>
+
+        <Grid Name="MainGrid" Grid.Row="1">
+            <Grid.Triggers>
+                <EventTrigger RoutedEvent="Grid.MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetProperty="Opacity" Storyboard.TargetName="MainGrid"
+                        From="0.5" To="1.0" Duration="0:0:0"></DoubleAnimation>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="Grid.MouseLeave">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetProperty="Opacity" Storyboard.TargetName="MainGrid"
+                        From="1.0" To="0.5" Duration="0:0:0"></DoubleAnimation>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+
+            </Grid.Triggers>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25*"/>
+                <RowDefinition Height="25*"/>
+            </Grid.RowDefinitions>
+            <ComboBox x:Name="comboBox" Grid.Row="0" Text="{Binding SelectedItemCmbBox,Mode=TwoWay ,UpdateSourceTrigger = PropertyChanged}" Height="28" Width="100" Background="LightCyan"  >
+                <ComboBoxItem Content="USA"/>
+                <ComboBoxItem Content="JPN"/>
+                <ComboBoxItem Content="ARA"/>
+                <ComboBoxItem Content="CHS"/>
+                <ComboBoxItem Content="CHT"/>
+                <ComboBoxItem Content="CZE"/>
+                <ComboBoxItem Content="DEN"/>
+                <ComboBoxItem Content="FIN"/>
+                <ComboBoxItem Content="FRA"/>
+                <ComboBoxItem Content="GER"/>
+                <ComboBoxItem Content="GRE"/>
+                <ComboBoxItem Content="HUN"/>
+                <ComboBoxItem Content="ITA"/>
+                <ComboBoxItem Content="JPN"/>
+                <ComboBoxItem Content="KOR"/>
+                <ComboBoxItem Content="LIT"/>
+                <ComboBoxItem Content="NED"/>
+                <ComboBoxItem Content="POL"/>
+                <ComboBoxItem Content="POR"/>
+                <ComboBoxItem Content="RUS"/>
+                <ComboBoxItem Content="SPA"/>
+                <ComboBoxItem Content="THA"/>
+                <ComboBoxItem Content="TUR"/>
+            </ComboBox>
+            <Button Grid.Row="1" FontSize="10" Style="{StaticResource ButtonStyle}"  Foreground="White"  Content="Save" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Name="button143"  Command="{Binding LanguageSaveCommand}" CommandParameter="{Binding LauguageFolderPath}"  Width="50" Height="30" />
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="MVVMExample.GriditemUserContol"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MVVMExample"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+
+    <UserControl.Resources>
+        <local:PatientDetails x:Key="GetStatusKey" />
+    </UserControl.Resources>
+    <Grid>
+        <StackPanel HorizontalAlignment="Left">
+            <ItemsControl ItemsSource="{Binding Path=PatientDetailsColl}" >
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="130*"/>
+                                <ColumnDefinition Width="240*"/>
+                                <ColumnDefinition Width="240*"/>
+                                <ColumnDefinition Width="240*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBox Grid.Column="0"   Width="100" Text="{Binding Path=PatientID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Background="{Binding  Converter={StaticResource GetStatusKey}}"/>
+                            <TextBox Grid.Column="1"   Width="100" Text="{Binding Path=PatientName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Background="{Binding  Converter={StaticResource GetStatusKey}}"/>
+                            <TextBox  Grid.Column="2"  Width="100" Text="{Binding Path=PatientSex, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Background="{Binding  Converter={StaticResource GetStatusKey}}" />
+                            <CheckBox Grid.Column="3"  Width="100" Name="ViewCheckBox"  ></CheckBox>
+                            <Popup PlacementTarget="{Binding ElementName=ViewCheckBox}" Placement="Bottom"
+			               Width="300" Height="300" 
+			              IsOpen="{Binding ElementName=ViewCheckBox, Path=IsChecked}"
+			               PopupAnimation="Slide" StaysOpen="False" AllowsTransparency="True">
+                                <Grid   >
+                                    <!--<Label Background="AliceBlue" > PopUp</Label>-->
+                                    <local:PopUpUserControl  SetNameText="{Binding Path=PatientName, Mode=TwoWay }" SetNameID="{Binding Path=PatientID, Mode=TwoWay }"/>
+                                    
+                                </Grid>
+                            </Popup>
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </StackPanel>
+    </Grid>
+</UserControl>

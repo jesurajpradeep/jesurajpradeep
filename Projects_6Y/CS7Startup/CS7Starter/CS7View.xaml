@@ -1,0 +1,91 @@
+﻿<Window x:Class="CS7Starter.MainWindow"
+        x:Name="CS7StarterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         xmlns:s="clr-namespace:System;assembly=mscorlib"
+        Title="CS7" WindowStyle="None" Topmost="True"  Loaded="Window_Loaded" AllowsTransparency="True" MouseLeftButtonDown="OnMouseLeftButtonDown" WindowStartupLocation="Manual"  Height="185" Width="313" ResizeMode="NoResize">
+   <Window.Background>
+        <SolidColorBrush Opacity="0.1" Color="LightCyan"/>
+    </Window.Background>
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources\Styles.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Button Content="X" FontSize="8" FontStyle="Oblique" FontWeight="ExtraBold" Height="14" MinHeight="14" HorizontalAlignment="Right" Command="{Binding ExitCommand}"> </Button>
+    
+    <Grid Name="MainGrid" Grid.Row="1">
+        <Grid.Triggers>
+            <EventTrigger RoutedEvent="Grid.MouseEnter">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation Storyboard.TargetProperty="Opacity" Storyboard.TargetName="MainGrid"
+                        From="0.5" To="1.0" Duration="0:0:0"></DoubleAnimation>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+            <EventTrigger RoutedEvent="Grid.MouseLeave">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation Storyboard.TargetProperty="Opacity" Storyboard.TargetName="MainGrid"
+                        From="1.0" To="0.5" Duration="0:0:0"></DoubleAnimation>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+
+        </Grid.Triggers>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+        </Grid.ColumnDefinitions>
+
+            <Button Grid.Row="0" FontSize="10" Grid.Column="0" Foreground="White" Style="{StaticResource ButtonStyle}"  Content="SysLoader" HorizontalAlignment="Left"  Name="button1"   Command="{Binding SysLoaderCommand}" />
+            <Button Grid.Row="0"  FontSize="10" Grid.Column="1" Foreground="White" Style="{StaticResource ButtonStyle}"  Content="Log Clear"  HorizontalAlignment="Right"  Name="button2"   Command="{Binding LogClearCommand}"/>
+            <Button Grid.Row="0"  FontSize="10" Grid.Column="2" Foreground="White" Style="{StaticResource ButtonStyle}"  Content="Data Clear"  HorizontalAlignment="Right"  Name="button3"   Command="{Binding DataClearCommand}" />
+            <Button Grid.Row="1" FontSize="10" Grid.Column="0" Foreground="White" Style="{StaticResource ButtonStyle}"  Content="Kill All"  HorizontalAlignment="Left"  Name="button4"   Command="{Binding KillAllCommand}"/>
+            <Button Grid.Row="1" FontSize="10" Grid.Column="1" Foreground="White" Style="{StaticResource ButtonStyle}"  Content="Fresh Binary"  HorizontalAlignment="Left" Command="{Binding NewBinaryCommand}">
+            <Button.ToolTip>
+                <ToolTip>
+                    <StackPanel>
+                        <TextBlock FontWeight="Bold">1. Changing TaskBar ScriptStatus</TextBlock>
+                        <TextBlock FontWeight="Bold">2. Copies License Files</TextBlock>
+                            <TextBlock FontWeight="Bold">3. Copies Correct Files</TextBlock>
+                        </StackPanel>
+                </ToolTip>
+            </Button.ToolTip>
+        </Button>
+            <Button Grid.Row="1"  Grid.Column="2"  FontSize="10" Foreground="White" Style="{StaticResource ButtonStyle}"  Content="CS7ProcessCheck" HorizontalAlignment="Left"  Name="button10"  Command="{Binding ProcessCheckCommand}" CommandParameter="{Binding ElementName=CS7StarterWindow}" />
+        <Button Grid.Row="2" Grid.Column="2" FontSize="10" Foreground="White" Style="{StaticResource ButtonStyle}"  Content="{Binding AutoShutdownValue, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Left"  Name="button20"  Command="{Binding AutoShutdownCommand}" />
+        <Button Grid.Row="2" FontSize="10" Grid.Column="0" Foreground="White" Style="{StaticResource ButtonStyle}"  Content="{Binding Locale, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left"  Name="button7"  Command="{Binding LanguageUpdateCommand}"/>
+        <Button Grid.Row="2" FontSize="10" Grid.Column="1" Foreground="White" Style="{StaticResource ButtonStyle}"  Content="{Binding Mode, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left"  Name="button8"  Command="{Binding ScreenModeUpdateCommand}"/>
+        <Button Grid.Row="3" FontSize="10" Grid.Column="0" Foreground="White" Style="{StaticResource ButtonStyle}"  Content="PluginSetting" HorizontalAlignment="Left"  Name="button9"  Command="{Binding FolderOpenCommand}" CommandParameter="{Binding PluginSettingPath}"/>
+        <Button Grid.Row="3" FontSize="10" Grid.Column="1" Foreground="White" Style="{StaticResource ButtonStyle}"  Content="Language Folder" HorizontalAlignment="Left"  Name="button11"  Command="{Binding FolderOpenCommand}" CommandParameter="{Binding LauguageFolderPath}"/>
+        <Button Grid.Row="3" FontSize="10" Grid.Column="2" Foreground="White" Style="{StaticResource ButtonStyle}"  Content="Log Folder" HorizontalAlignment="Left"  Name="button12"  Command="{Binding FolderOpenCommand}" CommandParameter="{Binding LogFolderPath}"/>
+        <Button Grid.Row="4" FontSize="10" Grid.Column="0" Foreground="White" Style="{StaticResource ButtonStyle}"  Content="App Folder" HorizontalAlignment="Left"  Name="button13"  Command="{Binding FolderOpenCommand}" CommandParameter="{Binding AppFolderPath}"/>
+            <Button Grid.Row="4" FontSize="10" Grid.Column="1" Foreground="White" Style="{StaticResource ButtonStyle}"  Content="Log Zip" HorizontalAlignment="Left"  Name="button313"  Command="{Binding CurrentLogZipperCommand}" CommandParameter="{Binding AppFolderPath}"/>
+        <Button Grid.Row="4" FontSize="10" Grid.Column="2" Foreground="White" Style="{StaticResource ButtonStyle}"  Content="TopMost Tracker" HorizontalAlignment="Left"  Name="button143"  Command="{Binding ForeGroundWindowTrackerCommand}" CommandParameter="{Binding AppFolderPath}"/>
+            <Button Grid.Row="5" FontSize="10" Grid.Column="1" Foreground="White" Style="{StaticResource ButtonStyle}"  Content="" HorizontalAlignment="Left"/>
+            <Button Grid.Row="5" FontSize="10" Grid.Column="2" Foreground="White" Style="{StaticResource ButtonStyle}"  Content="Exit" HorizontalAlignment="Left"  Command="{Binding ExitCommand}" CommandParameter="{Binding ElementName=CS7StarterWindow}" />
+            <Button Grid.Row="5" FontSize="10" Grid.Column="0" Foreground="White" Style="{StaticResource ButtonStyle}"  Content="MinimizeToTray" HorizontalAlignment="Left"  Name="button66"  Command="{Binding MinimizeToTrayCommand}"/>
+
+
+    </Grid>
+    </Grid>
+</Window>

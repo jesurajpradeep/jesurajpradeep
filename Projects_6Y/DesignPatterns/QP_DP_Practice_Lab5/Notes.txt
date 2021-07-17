@@ -1,0 +1,10 @@
+1. A good software architect
+		--> How to software reacts if changes happen.
+		--> Minimal no of changes should occur, for requirement changes. 
+
+
+Lab 2
+--> Dependency Injection
+--> Inversion of Control
+--> Strategy Pattern
+--> Using Unity framework for Factory.
