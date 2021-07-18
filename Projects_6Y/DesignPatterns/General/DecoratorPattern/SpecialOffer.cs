@@ -5,8 +5,8 @@ using System.Text;
 
 namespace DecoratorPattern
 {
-    class SpecialOffer : VehicleDecorator
-    {
+    //class SpecialOffer : VehicleDecorator
+    //{
 
-    }
+    //}
 }
