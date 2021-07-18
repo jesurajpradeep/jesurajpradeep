@@ -10,7 +10,6 @@ namespace DotNetBasics
             IRefreshConcepts refreshDelegates = new RefreshDelegates();
             refreshDelegates.ExecuteTestProgram();
             Console.ReadLine();
-                
         }
     }
 }
