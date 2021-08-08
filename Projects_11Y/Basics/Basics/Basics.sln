@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetBasics", "DotNetBasics\DotNetBasics.csproj", "{B7642DAD-6CD3-4401-B094-78D1F70DA240}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetBasics", "DotNetBasics\DotNetBasics.csproj", "{B7642DAD-6CD3-4401-B094-78D1F70DA240}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebAPI", "WebAPI", "{DCF698AC-99D3-4BB3-B888-B345D8EC0737}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dotnet_General", "Dotnet_General", "{70FE7B6A-8520-413B-B938-4C0C9288CD28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPISample", "WebAPISample\WebAPISample.csproj", "{DF58A3D8-A3B0-4CC7-92AC-716E248A9C5D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +21,17 @@ Global
 		{B7642DAD-6CD3-4401-B094-78D1F70DA240}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7642DAD-6CD3-4401-B094-78D1F70DA240}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7642DAD-6CD3-4401-B094-78D1F70DA240}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF58A3D8-A3B0-4CC7-92AC-716E248A9C5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF58A3D8-A3B0-4CC7-92AC-716E248A9C5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF58A3D8-A3B0-4CC7-92AC-716E248A9C5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF58A3D8-A3B0-4CC7-92AC-716E248A9C5D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B7642DAD-6CD3-4401-B094-78D1F70DA240} = {70FE7B6A-8520-413B-B938-4C0C9288CD28}
+		{DF58A3D8-A3B0-4CC7-92AC-716E248A9C5D} = {DCF698AC-99D3-4BB3-B888-B345D8EC0737}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DEEDB046-9A40-4D13-B6EC-1BA2AF48F5BF}
